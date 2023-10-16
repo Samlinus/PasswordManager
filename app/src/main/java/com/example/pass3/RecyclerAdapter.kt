@@ -1,7 +1,7 @@
 package com.example.pass3
 
 import android.graphics.Color
-import android.location.GnssAntennaInfo.Listener
+import android.graphics.drawable.GradientDrawable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -22,7 +22,7 @@ class RecyclerAdapter(private var itemList: ArrayList<Item>):
     }
 
     class MyViewHolder(itemView: View,listener: onItemClickListener): RecyclerView.ViewHolder(itemView){
-        val icon_texview: TextView = itemView.findViewById(R.id.alphabet_icon)
+        val icon_textview: TextView = itemView.findViewById(R.id.alphabet_icon)
         val title_textview: TextView = itemView.findViewById(R.id.Title_item_textview)
         val userName_textview: TextView = itemView.findViewById(R.id.Username_item_textview)
         init {
@@ -46,8 +46,10 @@ class RecyclerAdapter(private var itemList: ArrayList<Item>):
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         val currentItem = itemList[position]
-        holder.icon_texview.setBackgroundColor(getRandomColor())
-        holder.icon_texview.text = currentItem.StartingLetter.toString()
+        // Changing the color of circle xml...
+        val drawable = holder.icon_textview.background as GradientDrawable
+        drawable.setColor(Color.parseColor(getRandomColor()))
+        holder.icon_textview.text = currentItem.StartingLetter.toString()
         holder.title_textview.text = currentItem.Title
         holder.userName_textview.text = currentItem.UserName
 
@@ -56,10 +58,10 @@ class RecyclerAdapter(private var itemList: ArrayList<Item>):
         this.itemList = filteredList
         notifyDataSetChanged()
     }
-    private fun getRandomColor(): Int {
+    private fun getRandomColor(): String {
         val red = (0..255).random()
         val green = (0..255).random()
         val blue = (0..255).random()
-        return Color.rgb(red,green,blue)
+        return String.format("#%02X%02X%02X", red, green, blue)
     }
 }
