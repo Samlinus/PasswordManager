@@ -1,4 +1,4 @@
-package com.example.pass3
+package com.example.passwordManager
 
 import android.annotation.SuppressLint
 import android.content.Intent
@@ -8,11 +8,12 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.pass3.R
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 
 class StartApp : AppCompatActivity() {
-    lateinit var db: DBHelper
+    private lateinit var db: DBHelper
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

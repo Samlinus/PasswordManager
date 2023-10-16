@@ -1,4 +1,4 @@
-package com.example.pass3
+package com.example.passwordManager
 
 import android.annotation.SuppressLint
 import android.content.ContentValues
@@ -66,6 +66,7 @@ class DBHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, null
         val s = db.rawQuery("select count(*) from $USER_TABLE where $USER_PASSWORD='$password'", null)
         s.moveToFirst()
         val count = s.getInt(0)
+        s.close()
         return count == 1
     }
     fun insert(password: String): Long {

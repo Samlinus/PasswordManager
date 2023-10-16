@@ -1,4 +1,4 @@
-package com.example.pass3
+package com.example.passwordManager
 
 import android.content.Intent
 import android.os.Bundle
@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.pass3.R
 import java.util.Locale
 
 class HomePage : AppCompatActivity() {
@@ -19,7 +20,7 @@ class HomePage : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.page1)
+        setContentView(R.layout.homepage)
 
 
         val btnAdd = findViewById<Button>(R.id.buttonAdd)
@@ -41,7 +42,7 @@ class HomePage : AppCompatActivity() {
 
 
         recyclerView.adapter = itemAdapter
-        itemAdapter.setOnItemClickListener(object: RecyclerAdapter.onItemClickListener{
+        itemAdapter.setOnItemClickListener(object: RecyclerAdapter.OnItemClickListener{
             override fun onItemClick(position: Int) {
                 Toast.makeText(this@HomePage,"You clicked on Item no. $position",Toast.LENGTH_SHORT).show()
             }
@@ -93,7 +94,8 @@ class HomePage : AppCompatActivity() {
         println("item set..")
     }
 
-    override fun onBackPressed() {
+    @Deprecated("Deprecated in Java")
+    override fun  onBackPressed() {
         println("Back pressed..")
         finish()
     }

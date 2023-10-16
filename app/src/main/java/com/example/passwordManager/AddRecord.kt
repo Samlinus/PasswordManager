@@ -1,4 +1,4 @@
-package com.example.pass3
+package com.example.passwordManager
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -6,6 +6,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.pass3.R
 import com.google.android.material.textfield.TextInputEditText
 
 class AddRecord :AppCompatActivity(){
@@ -24,7 +25,7 @@ class AddRecord :AppCompatActivity(){
 
         btnSave.setOnClickListener {
             Toast.makeText(this, "hi ${edTitle.text.toString().length}", Toast.LENGTH_SHORT).show()
-            if (edTitle.text.toString().length==0){
+            if (edTitle.text.toString().isEmpty()){
                 Toast.makeText(this, "k", Toast.LENGTH_SHORT).show()
                 edTitle.error = "Enter a Title Name"
             }

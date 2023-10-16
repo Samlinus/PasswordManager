@@ -1,4 +1,4 @@
-package com.example.pass3
+package com.example.passwordManager
 
 import org.junit.Test
 

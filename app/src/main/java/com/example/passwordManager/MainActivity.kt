@@ -1,4 +1,4 @@
-package com.example.pass3
+package com.example.passwordManager
 
 import android.annotation.SuppressLint
 import android.content.Intent
@@ -7,11 +7,12 @@ import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import com.example.pass3.R
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 
 class MainActivity : AppCompatActivity() {
-    lateinit var db: DBHelper
+    private lateinit var db: DBHelper
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,7 +24,7 @@ class MainActivity : AppCompatActivity() {
             val edPass1 = findViewById<TextInputEditText>(R.id.etPass1)
             val edPass2 = findViewById<TextInputEditText>(R.id.etPass2)
             val btnContinue = findViewById<Button>(R.id.buttonContinue)
-            val tilPass1 = findViewById<TextInputLayout>(R.id.tilPass1)
+            findViewById<TextInputLayout>(R.id.tilPass1)
             val tilPass2 = findViewById<TextInputLayout>(R.id.tilPass2)
 
             btnContinue.setOnClickListener {
